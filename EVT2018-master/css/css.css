@@ -1,0 +1,40 @@
+.image{
+	display: inline-block;
+	width: 120px;
+}
+.image img{
+	max-width: 100px;
+}
+
+.image img.active{
+	max-width: none;
+}
+
+.spoilerStyle{
+	background: #fc0;
+}
+
+.tooltip{
+ position:absolute;
+ z-index:999;
+ left:-9999px;
+ background-color:#dedede;
+ padding:5px;
+ border:1px solid #fff;
+ width:250px;
+}
+
+.tooltip p{
+ margin:0;
+ padding:0;
+ color:#fff;
+ background-color:#222;
+ padding:2px 7px;
+}
+
+
+
+
+
+
+
