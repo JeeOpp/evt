@@ -1,4 +1,24 @@
-angular.module('game', ['tooltips']).controller('GalleryController', ['$scope','imageService', function($scope, imageService){
+angular.module('game', ['tooltips','ngRoute'])
+	.config([
+        '$routeProvider',
+        function ($routeProvider) {
+            // Routes configuration
+            $routeProvider
+                .when('/', {
+                    templateUrl: '/gallery.html',
+                    controller: 'GalleryController'
+                })
+				.when('/add', {
+                    templateUrl: '/add.html',
+                    controller: 'GalleryController'
+                })
+                .otherwise({
+                    redirectTo: '/add'
+                });
+        }
+    ])
+
+	.controller('GalleryController', ['$scope','imageService', function($scope, imageService){
 		$scope.images = imageService.initFirstImages();
 		$scope.spoiler = false;
 

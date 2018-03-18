@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app='game'>
+<head>
+    <meta charset="utf-8">
+	<link rel="stylesheet" href="css/css.css">
+	<link rel="stylesheet" href="css/angular-tooltips.min.css">
+
+    <script src="js/angular.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/service.js"></script>
+	<script src="js/angular-tooltips.min.js"></script>
+
+</head>
+<body ng-controller="GalleryController">
+<div >
+	<div>
+		<input type="text" ng-model="newImageUrl"/>
+		<input type="text" ng-model="newImageName"/>
+		<textarea rows="10" cols="45" ng-model="newImageTitle"></textarea>
+
+		<input type="button" value="Добавить" ng-click="addImage()" />
+	</div>
+	<div class='image' ng-repeat='imageModel in images'>
+		{{imageModel.name}}<br/>
+		<div class="photo" data-tooltip="{{imageModel.title}}">
+			<img ng-src='{{imageModel.url}}' 
+			 ng-class='{active: imageModel.isActive}' 
+			 ng-click="imageModel.isActive = !imageModel.isActive"/>
+		</div>
+
+		<input ng-show="imageModel.isActive" ng-model="imageModel.url"/>
+		<input type="button" value = "Удалить" ng-show="imageModel.isActive" ng-click="deleteImage($index)"/>
+		
+		<input type="button" ng-disabled="$index==0" value = "move left" ng-show="imageModel.isActive" ng-click="moveLeft($index)"/>
+		
+		<input type="button" ng-disabled="$index==images.length-1" value = "move right" ng-show="imageModel.isActive" ng-click="moveRight($index)"/>
+
+	</div>
+	<br/>
+	<br/>
+		<div>
+        	Бла-бла-б
+        	<button ng-click="spoiler = !spoiler" ng-hide="spoiler"> ↓ </button>
+        	<button ng-click="spoiler = !spoiler" ng-show="spoiler"> ↑ </button>
+        </div>
+     
+        <div>
+            <div class="spoilerStyle" ng-show="spoiler">ла-ла-ла</div>
+        </div>  
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
