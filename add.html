@@ -1,0 +1,14 @@
+<div>
+	<input type="text" ng-model="newImage.url" />
+	<input type="text" ng-model="newImage.name"/>
+	<textarea rows="10" cols="45" ng-model="newImage.title"></textarea>
+	<input type="button" value="Execute" ng-click="addImage()"/>
+	
+	<br/>
+	
+	
+	<div class="photo" data-tooltip='{{newImage.title}}'>
+		{{newImage.name}}<br/>
+		<img ng-src='{{newImage.url}}'/>
+	</div>
+</div>

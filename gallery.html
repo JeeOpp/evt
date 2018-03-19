@@ -1,6 +1,6 @@
 <div class='image' ng-repeat='imageModel in images'>
 		{{imageModel.name}}<br/>
-		<div class="photo" data-tooltip="{{imageModel.title}}">
+		<div class="photo" data-tooltip = "{{imageModel.title}}">
 			<img ng-src='{{imageModel.url}}' 
 			 ng-class='{active: imageModel.isActive}' 
 			 ng-click="imageModel.isActive = !imageModel.isActive"/>
@@ -12,5 +12,8 @@
 		<input type="button" ng-disabled="$index==0" value = "move left" ng-show="imageModel.isActive" ng-click="moveLeft($index)"/>
 		
 		<input type="button" ng-disabled="$index==images.length-1" value = "move right" ng-show="imageModel.isActive" ng-click="moveRight($index)"/>
+		
+		<input type="button" value = "Изменить" ng-show="imageModel.isActive" ng-click="sendImage($index)"/>
+		
 
 </div>

@@ -2,15 +2,6 @@ angular.module('game')
 	.service('imageService', function(){
 		var images = [];
 		
-		return {
-			getAll: getAllFunc,
-			initFirstImages: initFirstImages,
-			addImage:addImage,
-			deleteImage:deleteImage,
-			moveLeft:moveLeft,
-			moveRight:moveRight
-		};
-		
 		function addImage(url,name,title){
 			images.push(createImage(url,name,title));
 			return images;
@@ -18,6 +9,10 @@ angular.module('game')
 		
 		function getAllFunc(){
 			return images;	
+		}
+		
+		function init(){
+			return images;
 		}
 		
 		function initFirstImages(){
@@ -58,4 +53,25 @@ angular.module('game')
 				images[index] = temp;
 			}
 		}
+		
+		function getImage(index){
+			return images[index];
+		}
+		
+		function changeImage(img, newImage){
+			img.url = newImage.url;
+			img.name = newImage.name;
+			img.title = newImage.title;
+		}
+		
+		return {
+			getAll: getAllFunc,
+			init: init,
+			addImage:addImage,
+			deleteImage:deleteImage,
+			moveLeft:moveLeft,
+			moveRight:moveRight,
+			getImage:getImage,
+			changeImage:changeImage
+		};
 	});
